@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	{% load staticfiles %}
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<title>电影列表 - 疾风电影数据</title>
+	
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	
+	<script src="{% static 'js/nav.js' %}"></script>
+	<link href="{% static 'css/nav.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/moviechart.css' %}" rel="stylesheet" type="text/css">
+	
+	<script src="{% static 'js/jquery.easing.js' %}"></script>
+	<script src="{% static 'js/jquery.scrollify.min.js' %}"></script>
+	
+	<script src="{% static 'js/echarts.common.min.js' %}"></script>
+	<script src="{% static 'js/moviechart.js' %}"></script>
+</head>
+<body>
+	
+	<!-- 顶部导航栏 -->
+	<div id="nav"></div>
+	
+	<!-- 大屏背景展示图 -->
+	<div class="bg bg1">
+		<b class="bg-title">电 影 数 据 图 表</b><br />
+		<p class="bg-content">疾 风 电 影 独 创 的 电 影 数 据 可 视 化 解 决 方 案</p>
+	</div>
+	
+	<div class="bg bg2">
+		<div class="panel panel-primary mypanel">
+			<div class="panel-heading">
+        		<h3 class="panel-title">实 时 电 影 票 房 数 据 柱 状 图</h3>
+    		</div>
+			<div class="panel-body mypanel">
+				<!-- 图表容器 -->
+				<div id="chart1"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="bg bg3">
+		<div class="panel panel-primary mypanel">
+			<div class="panel-heading">
+        		<h3 class="panel-title">累 计 电 影 票 房 数 据 柱 状 图</h3>
+    		</div>
+			<div class="panel-body mypanel">
+				<!-- 图表容器 -->
+				<div id="chart2"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="bg bg4">
+		<div class="panel panel-primary mypanel">
+			<div class="panel-heading">
+        		<h3 class="panel-title">豆 瓣 电 影 评 分 数 据 柱 状 图</h3>
+    		</div>
+			<div class="panel-body mypanel">
+				<!-- 图表容器 -->
+				<div id="chart3"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="bg bg5">
+		<div class="panel panel-primary mypanel">
+			<div class="panel-heading">
+        		<h3 class="panel-title">时 光 网 电 影 评 分 数 据 柱 状 图</h3>
+    		</div>
+			<div class="panel-body mypanel">
+				<!-- 图表容器 -->
+				<div id="chart4"></div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

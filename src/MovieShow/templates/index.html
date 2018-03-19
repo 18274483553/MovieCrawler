@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	{% load staticfiles %}
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<title>首页 - 疾风电影数据</title>
+	
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	
+	<script src="{% static 'js/nav.js' %}"></script>
+	<link href="{% static 'css/nav.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+	
+	<script src="{% static 'js/jquery.easing.js' %}"></script>
+	<script src="{% static 'js/jquery.scrollify.min.js' %}"></script>
+	<script>$(function(){$.scrollify({section: '.bg'});});</script>
+	
+</head>
+<body>
+	
+	<!-- 顶部导航栏 -->
+	<div id="nav"></div>
+	
+	<!-- 大屏背景展示图 -->
+	<div class="bg bg1">
+		<b class="bg-title">疾 风 电 影 数 据</b><br />
+		<p class="bg-content">一 个 功 能 强 大 的 实 时 电 影 数 据 展 示 网 站</p>
+		<button type="button" class="btn btn-primary btn-lg">开 始 使 用</button>
+		<button type="button" class="btn btn-default btn-lg">联 系 我 们</button>
+	</div>
+	
+	<div class="bg bg2">
+		<b class="bg-title">震 撼 大 屏 ， 如 临 现 场</b><br />
+		<p class="bg-content">支 持 4 K 全 高 清 大 屏 幕 展 示 ， 打 造 数 据 I M A X 影 院</p>
+	</div>
+	
+	<div class="bg bg3">
+		<b class="bg-title">体 贴 ， 细 致 入 微</b><br />
+		<p class="bg-content">展 现 你 迫 切 想 要 看 见 的 一 切</p>
+	</div>
+	
+	<div class="bg bg4">
+		<b class="bg-title">要 迅 捷 ！</b><br />
+		<p class="bg-content">数 据 更 新 咫 尺 之 间 ， 你 看 清 了 吗 ？</p>
+	</div>
+	
+	<div class="bg bg5">
+		<b class="bg-title">全 网 数 据 ， 一 站 搞 定</b><br />
+		<p class="bg-content">不 再 浪 费 时 间 搜 寻 和 比 对 数 据 ， 现 在 就 开 始 使 用 疾 风 电 影 数 据 吧 ！</p>
+		<button type="button" class="btn btn-primary btn-lg">开 始 使 用</button>
+	</div>
+
+</body>
+</html>
