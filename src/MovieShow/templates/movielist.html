@@ -12,6 +12,8 @@
 	
 	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
 	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<link href="{% static 'css/bootstrap-table.css' %}" rel="stylesheet" type="text/css">
+	<script src="{% static 'js/bootstrap-table.js' %}"></script>
 	
 	<script src="{% static 'js/nav.js' %}"></script>
 	<script src="{% static 'js/movielist.js' %}"></script>
@@ -37,29 +39,124 @@
 	<div class="bg bg2">
 		<div class="panel panel-primary mypanel">
 			<div class="panel-heading">
-        		<h3 class="panel-title">实 时 热 映 电 影 数 据</h3>
+        		<h3 class="panel-title">实 时 热 映 电 影 票 房 数 据</h3>
     		</div>
 			<div class="panel-body mypanel">
 				<!-- 图表容器 -->
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th>电影名</th>
-							<th>上映天数</th>
-							<th>实时票房</th>
-							<th>累计票房</th>
-							<th>实时票房</th>
-							<th>票房占比</th>
-							<th>上座率</th>
-							<th>平均票价</th>
-							<th>豆瓣评分</th>
-							<th>时光网评分</th>
-						</tr>
-					</thead>
-				</table>
+				<div id="table1"></div>
 			</div>
 		</div>
 	</div>
 	
+	<div class="bg bg3">
+		<div class="panel panel-primary mypanel">
+			<div class="panel-heading">
+        		<h3 class="panel-title">实 时 热 映 电 影 评 分 数 据</h3>
+    		</div>
+			<div class="panel-body mypanel">
+				<!-- 图表容器 -->
+				<div id="table2"></div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+	    var datas  = [];
+	    var datas2 = [];
+	    var panelheight = $('.panel-body').height();
+		var i = 0;
+	    {% for movie in movies %}  
+	        datas[i]={
+	        		"name":"{{ movie.name }}",
+	        		"day":"{{ movie.day }}",
+	        		"boxoffice":"{{ movie.boxoffice }}",
+	        		"allboxoffice":"{{ movie.allboxoffice }}",
+	        		"boxofficerate":"{{ movie.boxofficerate }}",
+	        		"session":"{{ movie.session }}",
+	        		"rowpiecerate":"{{ movie.rowpiecerate }}",
+	        		"allpeople":"{{ movie.allpeople }}",
+	        		"people":"{{ movie.people }}",
+	        		"seatoccupancyrate":"{{ movie.seatoccupancyrate }}",
+	        		"price":"{{ movie.price }}"
+	        	};
+	        datas2[i]={
+	        		"name":"{{ movie.name }}",
+	        		"length":"{{ movie.length }}",
+	        		"type":"{{ movie.type }}",
+	        		"day":"{{ movie.day }}",
+	        		"douban":"{{ movie.douban }}",
+	        		"mtime":"{{ movie.mtime }}"
+	        };
+	        i++;
+	    {% endfor %}
+	    
+	    var size = Math.ceil(($('.panel-body').height() - 100) / 44);
+	    $(function () {  
+	        $('#table1').bootstrapTable({  
+	        	classes: 'table text-nowrap',
+	        	sortable: false,
+	            method: 'get',  
+	            cache: false,  
+	            height: $('.panel-body').height(),
+	            pagination: true,
+	            pageSize: size,
+	            pageNumber:1,  
+	            pageList: [size],
+	            paginationPreText: '上一页',
+	            paginationNextText: '下一页',
+	            sidePagination:'client',
+	            showRefresh: false,
+	            showExport: false,
+	            exportTypes: ['csv','txt','xml'],
+	            columns:
+	            [   {field:"name",title:"序号",align:"center",valign:"middle",sortable:"true",width:'5%',formatter: function (value, row, index) {return index+1;}},
+	            	{field:"name",title:"电影名",align:"center",valign:"middle",sortable:"true",width:'20%'},
+	                {field:"day",title:"上映天数",align:"center",valign:"middle",sortable:"true",width:'5%'},
+	                {field:"boxoffice",title:"实时票房",align:"center",valign:"middle",sortable:"true",width:'10%'},
+	                {field:"allboxoffice",title:"累计票房",align:"center",valign:"middle",sortable:"true",width:'10%'},
+	                {field:"boxofficerate",title:"票房占比",align:"center",valign:"middle",sortable:"true",width:'5%'},
+	                {field:"session",title:"实时场次",align:"center",valign:"middle",sortable:"true",width:'10%'},
+	                {field:"rowpiecerate",title:"排片占比",align:"center",valign:"middle",sortable:"true",width:'5%'},
+	                {field:"allpeople",title:"观影人数",align:"center",valign:"middle",sortable:"true",width:'10%'},
+	                {field:"people",title:"人次",align:"center",valign:"middle",sortable:"true",width:'10%'},
+	                {field:"seatoccupancyrate",title:"上座率",align:"center",valign:"middle",sortable:"true",width:'5%'},
+	                {field:"price",title:"平均票价",align:"center",valign:"middle",sortable:"true",width:'5%'},
+	            ],  
+	            data:datas,
+	        });
+	        
+	        $('#table2').bootstrapTable({  
+	        	classes: 'table text-nowrap',
+	        	sortable: false,
+	            method: 'get',  
+	            cache: false,  
+	            height: $('.panel-body').height(),
+	            pagination: true,
+	            pageSize: size,
+	            pageNumber:1,  
+	            pageList: [size],
+	            paginationPreText: '上一页',
+	            paginationNextText: '下一页',
+	            sidePagination:'client',
+	            showRefresh: false,
+	            showExport: false,
+	            exportTypes: ['csv','txt','xml'],
+	            columns:
+	            [   {field:"name",title:"序号",align:"center",valign:"middle",sortable:"true",width:'10%',formatter: function (value, row, index) {return index+1;}},
+	            	{field:"name",title:"电影名",align:"center",valign:"middle",sortable:"true",width:'20%'},
+	                {field:"length",title:"电影时长",align:"center",valign:"middle",sortable:"true",width:'15%'},
+	                {field:"type",title:"电影分类",align:"center",valign:"middle",sortable:"true",width:'20%'},
+	                {field:"day",title:"上映天数",align:"center",valign:"middle",sortable:"true",width:'15%'},
+	                {field:"douban",title:"豆瓣评分",align:"center",valign:"middle",sortable:"true",width:'15%'},
+	                {field:"mtime",title:"时光网评分",align:"center",valign:"middle",sortable:"true",width:'15%'},
+	            ],  
+	            data:datas2,
+	        });
+	    });
+	    
+	    // 重新调整高度
+	    $('.panel-body').height(panelheight);
+		
+	</script>
 </body>
 </html>

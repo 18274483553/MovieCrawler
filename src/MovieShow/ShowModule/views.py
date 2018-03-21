@@ -16,6 +16,7 @@ def movielist(request):
     @功能说明：处理电影列表页访问请求
     '''
     context = {}
+    context["movies"] = MovieFileUtil.readMovieFile()
     return render(request, 'movielist.html', context)
     
 def moviechart(request):

@@ -38,7 +38,7 @@ def CrawlerStart():
     #设置编码格式
     reload(sys)
     sys.setdefaultencoding('utf-8')
-    #MyThread(1).start()
+    MyThread(1).start()
 
 class MyThread(threading.Thread):
     '''

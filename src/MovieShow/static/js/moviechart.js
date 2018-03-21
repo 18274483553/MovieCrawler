@@ -20,7 +20,7 @@ $(document).ready(function(){
 	$.ajax({
 		type: 'POST',
 		url: '/getmoviepiaofang',
-		data: {"param":"实时票房","isnum":"True"},
+		data: {"param":"boxoffice","isnum":"True"},
 		success: function(result){
 			var jsondata = eval('(' + result + ')');
 			xdata1 = jsondata.key;
@@ -32,7 +32,7 @@ $(document).ready(function(){
 	$.ajax({
 		type: 'POST',
 		url: '/getmoviepiaofang',
-		data: {"param":"累计票房","isnum":"True"},
+		data: {"param":"allboxoffice","isnum":"True"},
 		success: function(result){
 			var jsondata = eval('(' + result + ')');
 			xdata2 = jsondata.key;
@@ -44,7 +44,7 @@ $(document).ready(function(){
 	$.ajax({
 		type: 'POST',
 		url: '/getmoviepiaofang',
-		data: {"param":"豆瓣评分","isnum":"True"},
+		data: {"param":"douban","isnum":"True"},
 		success: function(result){
 			var jsondata = eval('(' + result + ')');
 			xdata3 = jsondata.key;
@@ -56,7 +56,7 @@ $(document).ready(function(){
 	$.ajax({
 		type: 'POST',
 		url: '/getmoviepiaofang',
-		data: {"param":"时光网评分","isnum":"True"},
+		data: {"param":"mtime","isnum":"True"},
 		success: function(result){
 			var jsondata = eval('(' + result + ')');
 			xdata4 = jsondata.key;

@@ -30,8 +30,8 @@ def readMovieFile(param=None, isnum=False):
                 movies = []
                 movie = {}
                 for line in file:
-                    if("电影名：" in line):
-                        if(movie != {}):
+                    if("name：" in line):
+                        if(len(movie) > 2):
                             movies.append(movie)
                         movie = {}
                     if("：" in line and line.endswith("：") != True):
@@ -44,16 +44,16 @@ def readMovieFile(param=None, isnum=False):
                 key = ''
                 value = ''
                 for line in file:
-                    if("电影名：" in line):
+                    if("name：" in line):
                         key += '"' + re.search('^.*?：(.*)$', line).group(1) + '",'
-                    elif(param in line and isnum == 'True'):
+                    elif(line.startswith(param + "：") and isnum == 'True'):
                         if("亿" in line):
                             value += str(float(re.search('^.*?：(\d+\.?\d*).*$', line).group(1)) * 10000) + ','
                         elif(re.search('^.*?：(\d+\.?\d*).*$', line) == None):
                             value += '0' + ','
                         else:
                             value += re.search('^.*?：(\d+\.?\d*).*$', line).group(1) + ','
-                    elif(param in line):
+                    elif(line.startswith(param + "：")):
                         value += '"' + re.search('^.*?：(.*?)$', line).group(1) + '",'
                         
                 movies += key + '],"value":[' + value + ']}'
