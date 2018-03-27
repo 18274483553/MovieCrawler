@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^$', views.index),
     url(r'^movielist$', views.movielist),
     url(r'^moviechart$', views.moviechart),
+    url(r'^version$', views.version),
     url(r'^getmoviepiaofang$', views.getpiaofang),
 ]
 

@@ -5,6 +5,8 @@
 	{% load staticfiles %}
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="Keywords" content="{{keywords}}" />
+	<meta name="Description" content="{{description}}" />
 
 	<title>电影列表 - 疾风电影数据</title>
 	
@@ -86,6 +88,7 @@
 	        		"day":"{{ movie.day }}",
 	        		"douban":"{{ movie.douban }}",
 	        		"mtime":"{{ movie.mtime }}"
+	        		"maoyan":"{{ movie.maoyan }}",
 	        };
 	        i++;
 	    {% endfor %}
@@ -109,18 +112,18 @@
 	            showExport: false,
 	            exportTypes: ['csv','txt','xml'],
 	            columns:
-	            [   {field:"name",title:"序号",align:"center",valign:"middle",sortable:"true",width:'5%',formatter: function (value, row, index) {return index+1;}},
+	            [   {field:"name",title:"序号",align:"center",valign:"middle",sortable:"true",width:'10%',formatter: function (value, row, index) {return index+1;}},
 	            	{field:"name",title:"电影名",align:"center",valign:"middle",sortable:"true",width:'20%'},
-	                {field:"day",title:"上映天数",align:"center",valign:"middle",sortable:"true",width:'5%'},
+	                {field:"day",title:"上映天数",align:"center",valign:"middle",sortable:"true",width:'10%'},
 	                {field:"boxoffice",title:"实时票房",align:"center",valign:"middle",sortable:"true",width:'10%'},
 	                {field:"allboxoffice",title:"累计票房",align:"center",valign:"middle",sortable:"true",width:'10%'},
-	                {field:"boxofficerate",title:"票房占比",align:"center",valign:"middle",sortable:"true",width:'5%'},
+	                {field:"boxofficerate",title:"票房占比",align:"center",valign:"middle",sortable:"true",width:'10%'},
 	                {field:"session",title:"实时场次",align:"center",valign:"middle",sortable:"true",width:'10%'},
-	                {field:"rowpiecerate",title:"排片占比",align:"center",valign:"middle",sortable:"true",width:'5%'},
+	                {field:"rowpiecerate",title:"排片占比",align:"center",valign:"middle",sortable:"true",width:'10%'},
 	                {field:"allpeople",title:"观影人数",align:"center",valign:"middle",sortable:"true",width:'10%'},
 	                {field:"people",title:"人次",align:"center",valign:"middle",sortable:"true",width:'10%'},
-	                {field:"seatoccupancyrate",title:"上座率",align:"center",valign:"middle",sortable:"true",width:'5%'},
-	                {field:"price",title:"平均票价",align:"center",valign:"middle",sortable:"true",width:'5%'},
+	                {field:"seatoccupancyrate",title:"上座率",align:"center",valign:"middle",sortable:"true",width:'10%'},
+	                {field:"price",title:"平均票价",align:"center",valign:"middle",sortable:"true",width:'10%'},
 	            ],  
 	            data:datas,
 	        });
@@ -147,8 +150,9 @@
 	                {field:"length",title:"电影时长",align:"center",valign:"middle",sortable:"true",width:'15%'},
 	                {field:"type",title:"电影分类",align:"center",valign:"middle",sortable:"true",width:'20%'},
 	                {field:"day",title:"上映天数",align:"center",valign:"middle",sortable:"true",width:'15%'},
-	                {field:"douban",title:"豆瓣评分",align:"center",valign:"middle",sortable:"true",width:'15%'},
-	                {field:"mtime",title:"时光网评分",align:"center",valign:"middle",sortable:"true",width:'15%'},
+	                {field:"douban",title:"豆瓣评分",align:"center",valign:"middle",sortable:"true",width:'10%'},
+	                {field:"mtime",title:"时光网评分",align:"center",valign:"middle",sortable:"true",width:'10%'},
+	                {field:"maoyan",title:"猫眼评分",align:"center",valign:"middle",sortable:"true",width:'10%'},
 	            ],  
 	            data:datas2,
 	        });

@@ -13,19 +13,19 @@
 
 .bg1 {
 	padding: 20% 5% 5% 5%;
-	background: url(../img/bg3.jpg) no-repeat bottom center;
+	background: url(../img/bg2.jpg) no-repeat bottom center;
 }
 .bg2 {
-	background: url(../img/bg4.jpg) no-repeat bottom center;
+	background: url(../img/bg3.jpg) no-repeat bottom center;
 }
 .bg3 {
-	background: url(../img/bg5.jpg) no-repeat bottom center;
+	background: url(../img/bg4.jpg) no-repeat bottom center;
 }
 .bg4 {
-	background: url(../img/bg1.jpg) no-repeat bottom center;
+	background: url(../img/bg5.jpg) no-repeat bottom center;
 }
 .bg5 {
-	background: url(../img/bg2.jpg) no-repeat bottom center;
+	background: url(../img/bg1.jpg) no-repeat bottom center;
 }
 
 .bg-title{

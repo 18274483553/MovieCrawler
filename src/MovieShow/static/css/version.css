@@ -1,0 +1,62 @@
+.bg {
+	display: table;
+	width: 100%;
+	padding: 5em;
+	text-align: center;
+	color: #fff;
+	background-color: #000;
+	background-size: cover;
+}
+
+.bg-head {
+	padding-top: 20%;
+	height: 100%;
+}
+
+.bg-body {
+	padding-top: 0;
+}
+
+.bg1 {
+	background: url(../img/bg4.jpg) no-repeat bottom center;
+}
+
+.bg-title{
+	font-size:6em;
+	color:#45bcf9;
+}
+
+.bg-content{
+	font-size:2em;
+}
+
+.bg > p,b:hover{
+	cursor:default;
+}
+
+.bg > button{
+	margin:2em;
+}
+
+.mypanel {
+	width: 90%;
+	margin: 0 5%;
+	text-align: left;
+	background: url(../img/darkbg.jpg) repeat bottom center;
+}
+
+.version-list {
+	margin: 3em 0;
+}
+
+.version-list-item {
+	margin: 1em 0;
+}
+
+.version-title {
+	font-size: 1.3em;
+}
+
+.version-content {
+	font-size: 1.1em;
+}

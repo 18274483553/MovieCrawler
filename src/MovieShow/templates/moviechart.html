@@ -5,6 +5,8 @@
 	{% load staticfiles %}
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="Keywords" content="{{keywords}}" />
+	<meta name="Description" content="{{description}}" />
 
 	<title>电影列表 - 疾风电影数据</title>
 	
@@ -61,23 +63,11 @@
 	<div class="bg bg4">
 		<div class="panel panel-primary mypanel">
 			<div class="panel-heading">
-        		<h3 class="panel-title">豆 瓣 电 影 评 分 数 据 柱 状 图</h3>
+        		<h3 class="panel-title">电 影 评 分 数 据 柱 状 图</h3>
     		</div>
 			<div class="panel-body mypanel">
 				<!-- 图表容器 -->
 				<div id="chart3"></div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="bg bg5">
-		<div class="panel panel-primary mypanel">
-			<div class="panel-heading">
-        		<h3 class="panel-title">时 光 网 电 影 评 分 数 据 柱 状 图</h3>
-    		</div>
-			<div class="panel-body mypanel">
-				<!-- 图表容器 -->
-				<div id="chart4"></div>
 			</div>
 		</div>
 	</div>

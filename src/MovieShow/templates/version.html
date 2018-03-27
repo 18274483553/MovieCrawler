@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	{% load staticfiles %}
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="Keywords" content="{{keywords}}" />
+	<meta name="Description" content="{{description}}" />
+
+	<title>版本日志 - 疾风电影数据</title>
+	
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	
+	<script src="{% static 'js/nav.js' %}"></script>
+	<link href="{% static 'css/nav.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/version.css' %}" rel="stylesheet" type="text/css">
+	
+	
+</head>
+<body>
+	
+	<!-- 顶部导航栏 -->
+	<div id="nav"></div>
+	
+	<!-- 大屏背景展示图 -->
+	<div class="bg bg1 bg-head">
+		<b class="bg-title">版 本 信 息 日 志</b><br />
+		<p class="bg-content">记 录 着 疾 风 电 影 数 据 网 的 成 长 历 程</p>
+	</div>
+	
+	<div class="bg bg1 bg-body">
+		<div class="panel panel-primary mypanel">
+			<div class="panel-heading">
+        		<h3 class="panel-title">疾 风 电 影 数 据 历 史 版 本 信 息</h3>
+    		</div>
+			<div class="panel-body mypanel">
+				<ul class="version-list">
+				{% for key, values in versions.items %}
+					<li>
+						<b class="version-title">{{ key }}</b>
+						<ul class="version-list-item">
+						{% for value in values %}
+							<li class="version-content">{{ value }}</li>
+						{% endfor %}
+						</ul>
+					</li>
+				{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
