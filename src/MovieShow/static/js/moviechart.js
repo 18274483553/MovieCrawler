@@ -14,9 +14,9 @@ $(document).ready(function(){
 	var xdata4 = [], series4 = [];
 	var xdata5 = [], series5 = [];
 	
-	var mybar1 = creatbar("chart1", datestr, {name1});
-	var mybar2 = creatbar("chart2", datestr, {name2});
-	var mybar3 = creatbar("chart3", datestr, {name3, name4, name5});
+	var mybar1 = creatbar("chart1", datestr, [name1]);
+	var mybar2 = creatbar("chart2", datestr, [name2]);
+	var mybar3 = creatbar("chart3", datestr, [name3, name4, name5]);
 	
 	$.ajax({
 		type: 'POST',
@@ -26,7 +26,7 @@ $(document).ready(function(){
 			var jsondata = eval('(' + result + ')');
 			xdata1 = jsondata.key;
 			series1 = jsondata.value;
-			showbar(mybar1, xdata1, {series1}, {name1});
+			showbar(mybar1, xdata1, [series1], [name1]);
 		}
 	});
 	
@@ -38,7 +38,7 @@ $(document).ready(function(){
 			var jsondata = eval('(' + result + ')');
 			xdata2 = jsondata.key;
 			series2 = jsondata.value;
-			showbar(mybar2, xdata2, {series2}, {name2});
+			showbar(mybar2, xdata2, [series2], [name2]);
 		}
 	});
 	
@@ -50,7 +50,7 @@ $(document).ready(function(){
 			var jsondata = eval('(' + result + ')');
 			xdata3 = jsondata.key;
 			series3 = jsondata.value;
-			showbar(mybar3, xdata3, {series3, series4, series5}, {name3, name4, name5});
+			showbar(mybar3, xdata3, [series3, series4, series5], [name3, name4, name5]);
 		}
 	});
 
@@ -62,7 +62,7 @@ $(document).ready(function(){
 			var jsondata = eval('(' + result + ')');
 			xdata4 = jsondata.key;
 			series4 = jsondata.value;
-			showbar(mybar3, xdata3, {series3, series4, series5}, {name3, name4, name5});
+			showbar(mybar3, xdata3, [series3, series4, series5], [name3, name4, name5]);
 		}
 	});
 	
@@ -74,27 +74,27 @@ $(document).ready(function(){
 			var jsondata = eval('(' + result + ')');
 			xdata5 = jsondata.key;
 			series5 = jsondata.value;
-			showbar(mybar3, xdata3, {series3, series4, series5}, {name3, name4, name5});
+			showbar(mybar3, xdata3, [series3, series4, series5], [name3, name4, name5]);
 		}
 	});
 	
 	$(window).scroll(function () {
 		if ($(window).scrollTop() >= $('.panel').height() * 1 && $(window).scrollTop() <= $('.panel').height() * 2) {
-			showbar(mybar1, xdata1, {series1}, {name1});
+			showbar(mybar1, xdata1, [series1], [name1]);
 		}else{
-			clearbar(mybar1, {name1});
+			clearbar(mybar1, [name1]);
 		}
 		
 		if ($(window).scrollTop() >= $('.panel').height() * 2 && $(window).scrollTop() <= $('.panel').height() * 3) {
-			showbar(mybar2, xdata2, {series2}, {name2});
+			showbar(mybar2, xdata2, [series2], [name2]);
 		}else{
-			clearbar(mybar2, {name2});
+			clearbar(mybar2, [name2]);
 		}
 
 		if ($(window).scrollTop() >= $('.panel').height() * 3 && $(window).scrollTop() <= $('.panel').height() * 4) {
-			showbar(mybar3, xdata3, {series3, series4, series5}, {name3, name4, name5});
+			showbar(mybar3, xdata3, [series3, series4, series5], [name3, name4, name5]);
 		}else{
-			clearbar(mybar3, {name3, name4, name5});
+			clearbar(mybar3, [name3, name4, name5]);
 		}
 	});
 });
@@ -104,7 +104,7 @@ function creatbar(id, datestr, names){
 	var legends = [];
 	var datas = [];
 	for(var i = 0; i < names.length; i++){
-		if(i % 3 == 1){
+		if(i % 3 == 0){
 			legends[i] = {
 					name: names[i],
 	        		textStyle: {color: '#00bfff'},
@@ -122,7 +122,7 @@ function creatbar(id, datestr, names){
 						},
 					},
 			};
-		}else if(i % 3 == 2) {
+		}else if(i % 3 == 1) {
 			legends[i] = {
 					name: names[i],
 	        		textStyle: {color: '#FF4500'},
@@ -160,7 +160,6 @@ function creatbar(id, datestr, names){
 			};
 		}
 	}
-	alert(legends);
 
 	// 基于准备好的dom，初始化echarts实例
     var mybar = echarts.init(document.getElementById(id));
